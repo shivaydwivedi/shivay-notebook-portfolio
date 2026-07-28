@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-mono: "JetBrains Mono", "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+    --font-hand: "Segoe Print", "Bradley Hand ITC", "Comic Sans MS", cursive;
+    --background: 42 38% 96%;
+    --foreground: 220 14% 12%;
+    --paper: 43 54% 98%;
+    --ink: 220 14% 12%;
+    --muted: 42 22% 90%;
+    --muted-foreground: 220 9% 38%;
+    --accent: 211 82% 94%;
+    --accent-foreground: 216 84% 18%;
+    --primary: 220 16% 12%;
+    --primary-foreground: 43 54% 98%;
+    --border: 38 26% 82%;
+    --input: 38 26% 82%;
+    --ring: 214 82% 45%;
+    --notebook-blue: 214 82% 45%;
+    --grid-line: 220 12% 18% / 0.07;
+  }
+
+  .dark {
+    --background: 220 14% 8%;
+    --foreground: 42 34% 92%;
+    --paper: 220 13% 12%;
+    --ink: 42 34% 92%;
+    --muted: 220 11% 18%;
+    --muted-foreground: 42 12% 68%;
+    --accent: 214 45% 18%;
+    --accent-foreground: 42 34% 96%;
+    --primary: 42 34% 92%;
+    --primary-foreground: 220 14% 8%;
+    --border: 220 10% 25%;
+    --input: 220 10% 25%;
+    --ring: 212 84% 58%;
+    --notebook-blue: 212 84% 58%;
+    --grid-line: 42 34% 92% / 0.07;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  ::selection {
+    @apply bg-blue text-white;
+  }
+}
+
+@layer utilities {
+  .handwritten {
+    font-family: var(--font-hand), var(--font-inter), ui-sans-serif, system-ui;
+  }
+
+  .type-caret::after {
+    content: "";
+    display: inline-block;
+    width: 0.08em;
+    height: 0.9em;
+    margin-left: 0.12em;
+    vertical-align: -0.08em;
+    background: currentColor;
+    animation: blink 0.9s steps(2, start) infinite;
+  }
+
+  @keyframes blink {
+    0%, 45% {
+      opacity: 1;
+    }
+    46%, 100% {
+      opacity: 0;
+    }
+  }
+}
