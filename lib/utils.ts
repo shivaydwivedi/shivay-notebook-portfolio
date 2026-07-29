@@ -1,17 +1,18 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { githubLink, leetcodeLink, linkedinLink, siteProfile } from "@/data/site";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
 export const siteConfig = {
-  name: "Shivay Dwivedi",
-  role: "Backend Developer | Python • Django • DRF",
-  tagline: "Building scalable backend systems with Python and Django.",
-  email: "shivay@example.com",
-  github: "https://github.com/shivaydwivedi",
-  linkedin: "https://www.linkedin.com/in/shivaydwivedi",
-  resume: "/resume.pdf",
-  leetcode: "https://leetcode.com/"
+  name: siteProfile.name,
+  role: siteProfile.role,
+  tagline: siteProfile.headline,
+  email: siteProfile.contact.email ?? "",
+  github: githubLink?.href ?? "",
+  linkedin: linkedinLink?.href ?? "",
+  resume: siteProfile.contact.resumePath ?? "",
+  leetcode: leetcodeLink?.href ?? ""
 };
