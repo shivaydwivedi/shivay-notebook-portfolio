@@ -5,17 +5,21 @@ import { CapabilitiesSection } from "@/components/sections/capabilities-section"
 import { ContactSection } from "@/components/sections/contact-section";
 import { HomeSection } from "@/components/sections/home-section";
 import { SelectedWorkSection } from "@/components/sections/selected-work-section";
+import { StructuredData } from "@/components/structured-data";
 
 export default function Home() {
   return (
-    <main id="main-content" className="px-3 pb-20" tabIndex={-1}>
-      <HomeSection />
-      <SelectedWorkSection />
-      <CapabilitiesSection />
-      <ArchitectureNotesSection />
-      <AboutSection />
-      <AlgorithmNotebookSection />
-      <ContactSection />
-    </main>
+    <>
+      <StructuredData />
+      <main id="main-content" className="px-3 pb-20" tabIndex={-1}>
+        <HomeSection />
+        <SelectedWorkSection />
+        <CapabilitiesSection />
+        <ArchitectureNotesSection />
+        <AboutSection />
+        <AlgorithmNotebookSection />
+        <ContactSection />
+      </main>
+    </>
   );
 }

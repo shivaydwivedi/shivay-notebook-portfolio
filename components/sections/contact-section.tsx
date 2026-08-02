@@ -112,7 +112,7 @@ function ProfileAction({ icon, label, href }: { icon: ReactNode; label: string; 
 
   return (
     <Button asChild variant="outline" className="justify-start">
-      <a href={href} target="_blank" rel="noreferrer">
+      <a href={href} target="_blank" rel="noopener noreferrer">
         {icon}
         {label}
       </a>

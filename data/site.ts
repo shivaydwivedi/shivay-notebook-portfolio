@@ -1,4 +1,4 @@
-import type { SiteProfile } from "@/types/portfolio";
+import type { SiteMetadataConfig, SiteProfile } from "@/types/portfolio";
 
 export const siteProfile = {
   name: "Shivay Dwivedi",
@@ -6,8 +6,6 @@ export const siteProfile = {
   headline: "Building backend systems with Python and Django.",
   shortBiography:
     "I am a Computer Science undergraduate focused on backend engineering, APIs, authentication systems, and algorithmic problem solving.",
-  metadataUrl: "https://shivay-dwivedi.dev", // TODO: Verify final owned domain before public deployment.
-  portfolioUrl: "https://shivay-dwivedi.dev",
   contact: {
     email: "shivay@example.com", // TODO: Replace with Shivay's verified contact email.
     emailIsPlaceholder: true,
@@ -39,6 +37,44 @@ export const siteProfile = {
     ]
   }
 } satisfies SiteProfile;
+
+export const siteMetadata: SiteMetadataConfig = {
+  title: "Shivay Dwivedi - Backend Engineer",
+  titleTemplate: "%s | Shivay Dwivedi",
+  description:
+    "Backend engineer portfolio for Shivay Dwivedi, focused on Python, Django, Node.js, APIs, database-backed systems, and five deployed projects.",
+  author: siteProfile.name,
+  creator: siteProfile.name,
+  keywords: [
+    "Shivay Dwivedi",
+    "Backend Engineer",
+    "Backend Developer",
+    "Python",
+    "Django",
+    "Django REST Framework",
+    "Node.js",
+    "APIs",
+    "Database-backed systems",
+    "Portfolio"
+  ],
+  portfolioUrl: undefined,
+  portfolioUrlIsVerified: false,
+  openGraph: {
+    title: "Shivay Dwivedi - Backend Engineer",
+    description:
+      "Python, Django, Node.js, APIs, database-backed systems, and five deployed projects in an engineering notebook portfolio.",
+    siteName: "Shivay Dwivedi Portfolio",
+    url: undefined,
+    image: undefined
+  },
+  twitter: {
+    card: "summary",
+    title: "Shivay Dwivedi - Backend Engineer",
+    description:
+      "Python, Django, Node.js, APIs, database-backed systems, and five deployed projects in an engineering notebook portfolio.",
+    image: undefined
+  }
+};
 
 export const githubLink = siteProfile.contact.socialLinks.find((link) => link.platform === "github");
 export const linkedinLink = siteProfile.contact.socialLinks.find((link) => link.platform === "linkedin");

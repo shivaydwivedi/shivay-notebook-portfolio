@@ -13,6 +13,7 @@ export function HomeSection() {
           width={1536}
           height={1024}
           priority
+          sizes="100vw"
           className="absolute inset-0 h-full w-full object-cover opacity-28 dark:opacity-18"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-paper via-paper/92 to-paper/62" aria-hidden="true" />
@@ -40,7 +41,7 @@ export function HomeSection() {
               </Button>
               {verifiedResume ? (
                 <Button asChild variant="outline">
-                  <a href={verifiedResume.path} target="_blank" rel="noreferrer">
+                  <a href={verifiedResume.path} target="_blank" rel="noopener noreferrer">
                     <Download className="size-4" aria-hidden="true" /> {verifiedResume.label}
                   </a>
                 </Button>

@@ -4,23 +4,52 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { CursorInk } from "@/components/cursor-ink";
 import { NotebookNav } from "@/components/notebook-nav";
-import { siteConfig } from "@/lib/utils";
+import { siteMetadata } from "@/data/site";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://shivay-dwivedi.dev"),
-  title: `${siteConfig.name} | Backend Developer`,
-  description: "A digital engineering notebook portfolio for Shivay Dwivedi, backend developer focused on Python, Django, DRF, APIs, and scalable systems.",
-  keywords: ["Shivay Dwivedi", "Backend Developer", "Python", "Django", "Django REST Framework", "Portfolio"],
-  authors: [{ name: siteConfig.name }],
+  title: {
+    default: siteMetadata.title,
+    template: siteMetadata.titleTemplate
+  },
+  description: siteMetadata.description,
+  keywords: siteMetadata.keywords,
+  authors: [{ name: siteMetadata.author }],
+  creator: siteMetadata.creator,
   openGraph: {
-    title: `${siteConfig.name} | Backend Developer`,
-    description: siteConfig.tagline,
+    title: siteMetadata.openGraph.title,
+    description: siteMetadata.openGraph.description,
+    siteName: siteMetadata.openGraph.siteName,
     type: "website",
-    images: ["/images/engineering-notebook-hero.png"]
+    ...(siteMetadata.openGraph.url ? { url: siteMetadata.openGraph.url } : {}),
+    ...(siteMetadata.openGraph.image
+      ? {
+          images: [
+            {
+              url: siteMetadata.openGraph.image.path,
+              alt: siteMetadata.openGraph.image.alt,
+              width: siteMetadata.openGraph.image.width,
+              height: siteMetadata.openGraph.image.height
+            }
+          ]
+        }
+      : {})
+  },
+  twitter: {
+    card: siteMetadata.twitter.card,
+    title: siteMetadata.twitter.title,
+    description: siteMetadata.twitter.description,
+    ...(siteMetadata.twitter.image ? { images: [siteMetadata.twitter.image] } : {})
   },
   robots: {
     index: true,
-    follow: true
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1
+    }
   }
 };
 

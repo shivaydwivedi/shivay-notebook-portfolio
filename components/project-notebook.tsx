@@ -194,7 +194,7 @@ function ProjectActions({ project }: { project: ProjectPortfolioContent }) {
           variant={action.kind === "live" ? "default" : "outline"}
           className="min-h-10"
         >
-          <a href={action.href} target="_blank" rel="noreferrer" aria-label={`${action.label} for ${project.name}`}>
+          <a href={action.href} target="_blank" rel="noopener noreferrer" aria-label={`${action.label} for ${project.name}`}>
             {action.kind === "repository" ? <Github className="size-4" aria-hidden="true" /> : <ExternalLink className="size-4" aria-hidden="true" />}
             {action.label}
           </a>

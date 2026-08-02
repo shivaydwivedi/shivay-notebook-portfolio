@@ -91,7 +91,7 @@ export function AlgorithmNotebookSection() {
           <div className="mt-5">
             {verifiedLeetCodeHref ? (
               <Button asChild variant="outline">
-                <a href={verifiedLeetCodeHref} target="_blank" rel="noreferrer">
+                <a href={verifiedLeetCodeHref} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="size-4" aria-hidden="true" /> LeetCode profile
                 </a>
               </Button>

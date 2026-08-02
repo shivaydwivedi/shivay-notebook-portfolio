@@ -44,6 +44,35 @@ export type SiteProfile = {
   availabilityIsPlaceholder?: boolean;
 };
 
+export type SiteMetadataConfig = {
+  title: string;
+  titleTemplate: string;
+  description: string;
+  author: string;
+  creator: string;
+  keywords: string[];
+  portfolioUrl?: string;
+  portfolioUrlIsVerified: boolean;
+  openGraph: {
+    title: string;
+    description: string;
+    siteName: string;
+    url?: string;
+    image?: {
+      path: string;
+      alt: string;
+      width: number;
+      height: number;
+    };
+  };
+  twitter: {
+    card: "summary" | "summary_large_image";
+    title: string;
+    description: string;
+    image?: string;
+  };
+};
+
 export type PortfolioSection = {
   id: string;
   label: string;

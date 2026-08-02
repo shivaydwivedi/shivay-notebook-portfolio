@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# Sitemap is intentionally omitted until Shivay's final public portfolio URL is verified.
