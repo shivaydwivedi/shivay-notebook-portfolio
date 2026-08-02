@@ -46,6 +46,10 @@ export const projectPortfolioContent = [
     },
     deploymentNote:
       "Render deployment URL is documented in the repository and deployment is owner-confirmed. Automated health availability was not confirmed during the Phase 3 audit.",
+    media: {
+      status: "pending",
+      pendingMessage: "Project media pending approval."
+    },
     technicalDecisions: [
       "Use a modular Django monolith instead of separate services for each domain.",
       "Expose API routes under `/api/v1` with DRF routers and API views.",
@@ -109,6 +113,10 @@ export const projectPortfolioContent = [
     },
     deploymentNote:
       "Repository documentation lists the Vercel web app and Render API, and deployment is owner-confirmed. Automated API health availability was not confirmed during the Phase 3 audit.",
+    media: {
+      status: "pending",
+      pendingMessage: "Project media pending approval."
+    },
     technicalDecisions: [
       "Use npm workspaces to separate API, web, and shared package boundaries.",
       "Store access and refresh flows through HTTP-only cookies.",
@@ -175,6 +183,10 @@ export const projectPortfolioContent = [
     },
     deploymentNote:
       "Repository documentation lists the Render service URL, and deployment is owner-confirmed. Automated health availability was not confirmed during the Phase 3 audit.",
+    media: {
+      status: "pending",
+      pendingMessage: "Project media pending approval."
+    },
     technicalDecisions: [
       "Use static HTML analysis rather than browser rendering or Lighthouse measurement.",
       "Require destination safety checks before outbound fetches.",
@@ -244,6 +256,10 @@ export const projectPortfolioContent = [
     },
     deploymentNote:
       "Repository documentation lists the Vercel frontend and Render backend, and deployment is owner-confirmed. Automated backend availability was not confirmed during the Phase 3 audit.",
+    media: {
+      status: "pending",
+      pendingMessage: "Project media pending approval."
+    },
     technicalDecisions: [
       "Share message creation logic between REST and Socket.io write paths.",
       "Persist messages in SQLite and keep typing and presence realtime-only.",
@@ -312,6 +328,10 @@ export const projectPortfolioContent = [
     },
     deploymentNote:
       "Repository configuration identifies the Render service URL, and deployment is owner-confirmed. Automated health availability was not confirmed during the Phase 3 audit.",
+    media: {
+      status: "pending",
+      pendingMessage: "Project media pending approval."
+    },
     technicalDecisions: [
       "Keep SQLite as the local default and use `DATABASE_URL` for PostgreSQL deployment.",
       "Enable Cloudinary media storage only when `CLOUDINARY_URL` exists.",

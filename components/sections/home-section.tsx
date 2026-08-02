@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { ArrowDown, BookMarked, Download, Mail, Sparkles } from "lucide-react";
+import { ArrowDown, BookMarked, Download, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { siteProfile } from "@/data/site";
+import { siteProfile, verifiedEmail, verifiedResume } from "@/data/site";
 
 export function HomeSection() {
   return (
@@ -38,14 +38,22 @@ export function HomeSection() {
                   <BookMarked className="size-4" aria-hidden="true" /> View selected work
                 </a>
               </Button>
-              <Button variant="outline" disabled>
-                <Download className="size-4" aria-hidden="true" /> Resume pending
-              </Button>
-              <Button asChild variant="outline">
-                <a href="#contact">
-                  <Mail className="size-4" aria-hidden="true" /> Contact
-                </a>
-              </Button>
+              {verifiedResume ? (
+                <Button asChild variant="outline">
+                  <a href={verifiedResume.path} target="_blank" rel="noreferrer">
+                    <Download className="size-4" aria-hidden="true" /> {verifiedResume.label}
+                  </a>
+                </Button>
+              ) : (
+                <Button variant="outline" disabled>
+                  <Download className="size-4" aria-hidden="true" /> Resume pending
+                </Button>
+              )}
+              {verifiedEmail ? (
+                <Button asChild variant="outline">
+                  <a href="#contact">Contact</a>
+                </Button>
+              ) : null}
             </div>
           </div>
           <a href="#selected-work" className="inline-flex w-fit items-center gap-2 text-sm font-medium text-muted-foreground">

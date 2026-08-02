@@ -15,10 +15,18 @@ export type SocialLink = {
   isPlaceholder?: boolean;
 };
 
+export type ResumeLink = {
+  path: string;
+  label: string;
+  isPlaceholder?: boolean;
+};
+
 export type ContactDetails = {
   email?: string;
+  emailIsPlaceholder?: boolean;
   socialLinks: SocialLink[];
   resumePath?: string;
+  resume?: ResumeLink;
   notes?: string[];
 };
 
@@ -29,6 +37,11 @@ export type SiteProfile = {
   shortBiography: string;
   contact: ContactDetails;
   metadataUrl?: string;
+  portfolioUrl?: string;
+  location?: string;
+  locationIsPlaceholder?: boolean;
+  availabilityStatus?: string;
+  availabilityIsPlaceholder?: boolean;
 };
 
 export type PortfolioSection = {
@@ -101,6 +114,7 @@ export type ProjectPortfolioContent = {
   testingSummary?: string;
   deploymentEvidence: PortfolioContentDeploymentEvidence;
   deploymentNote: string;
+  media?: ProjectMediaSet;
   technicalDecisions: string[];
   tradeoffs: string[];
   limitations: string[];
@@ -118,6 +132,25 @@ export type ProjectMedia = {
   hero?: string;
   screenshot?: string;
   alt?: string;
+};
+
+export type ProjectMediaKind = "application" | "api-documentation" | "dashboard" | "architecture" | "health" | "demo-video";
+
+export type ProjectMediaAsset = {
+  src: string;
+  alt: string;
+  caption: string;
+  type: ProjectMediaKind;
+  width?: number;
+  height?: number;
+};
+
+export type ProjectMediaSet = {
+  status: "approved" | "pending";
+  primary?: ProjectMediaAsset;
+  secondary?: ProjectMediaAsset[];
+  externalDemoVideo?: string;
+  pendingMessage?: string;
 };
 
 export type ArchitectureNode = {
@@ -189,6 +222,14 @@ export type ArchitectureNote = {
 };
 
 export type AlgorithmProfile = {
+  profileUrl?: string;
+  totalSolved?: string;
+  easyCount?: string;
+  mediumCount?: string;
+  hardCount?: string;
+  contestRating?: string;
+  strongestTopics?: string[];
+  lastVerifiedDate?: string;
   summary?: string;
   stats: ProjectMetric[];
   favoriteProblems: string[];

@@ -2,7 +2,7 @@ import { Code2, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionPage } from "@/components/section-page";
 import { futureAlgorithmProfile } from "@/data/notes";
-import { leetcodeLink } from "@/data/site";
+import { verifiedLeetcodeLink } from "@/data/site";
 
 const practiceFocus = [
   "Algorithm notes and problem-solving history will be added after profile verification.",
@@ -12,7 +12,16 @@ const practiceFocus = [
 export function AlgorithmNotebookSection() {
   const hasVerifiedStats = futureAlgorithmProfile.stats.length > 0;
   const hasVerifiedPatterns = futureAlgorithmProfile.patterns.length > 0;
-  const verifiedLeetCodeHref = leetcodeLink && !leetcodeLink.isPlaceholder ? leetcodeLink.href : undefined;
+  const verifiedLeetCodeHref = futureAlgorithmProfile.profileUrl ?? verifiedLeetcodeLink?.href;
+  const hasVerifiedProfileFields = Boolean(
+    futureAlgorithmProfile.totalSolved ||
+      futureAlgorithmProfile.easyCount ||
+      futureAlgorithmProfile.mediumCount ||
+      futureAlgorithmProfile.hardCount ||
+      futureAlgorithmProfile.contestRating ||
+      futureAlgorithmProfile.strongestTopics?.length ||
+      futureAlgorithmProfile.lastVerifiedDate
+  );
 
   return (
     <SectionPage id="algorithm-notebook" label="Algorithm Notebook">
@@ -37,14 +46,41 @@ export function AlgorithmNotebookSection() {
 
         <article className="rounded-[8px] border border-dashed border-border bg-background/55 p-5">
           <h3 className="text-xl font-semibold">Verified statistics</h3>
-          {hasVerifiedStats || hasVerifiedPatterns ? (
+          {hasVerifiedStats || hasVerifiedPatterns || hasVerifiedProfileFields ? (
             <div className="mt-4 grid gap-3 text-sm text-muted-foreground">
+              {futureAlgorithmProfile.totalSolved ? (
+                <p>
+                  <strong>Total solved:</strong> {futureAlgorithmProfile.totalSolved}
+                </p>
+              ) : null}
+              {futureAlgorithmProfile.easyCount ? (
+                <p>
+                  <strong>Easy:</strong> {futureAlgorithmProfile.easyCount}
+                </p>
+              ) : null}
+              {futureAlgorithmProfile.mediumCount ? (
+                <p>
+                  <strong>Medium:</strong> {futureAlgorithmProfile.mediumCount}
+                </p>
+              ) : null}
+              {futureAlgorithmProfile.hardCount ? (
+                <p>
+                  <strong>Hard:</strong> {futureAlgorithmProfile.hardCount}
+                </p>
+              ) : null}
+              {futureAlgorithmProfile.contestRating ? (
+                <p>
+                  <strong>Contest rating:</strong> {futureAlgorithmProfile.contestRating}
+                </p>
+              ) : null}
               {futureAlgorithmProfile.stats.map((stat) => (
                 <p key={stat.label}>
                   <strong>{stat.label}:</strong> {stat.value}
                 </p>
               ))}
+              {futureAlgorithmProfile.strongestTopics?.length ? <p>Strongest topics: {futureAlgorithmProfile.strongestTopics.join(", ")}</p> : null}
               {futureAlgorithmProfile.patterns.length ? <p>Patterns: {futureAlgorithmProfile.patterns.join(", ")}</p> : null}
+              {futureAlgorithmProfile.lastVerifiedDate ? <p>Last verified: {futureAlgorithmProfile.lastVerifiedDate}</p> : null}
             </div>
           ) : (
             <p className="mt-4 text-sm leading-6 text-muted-foreground">
