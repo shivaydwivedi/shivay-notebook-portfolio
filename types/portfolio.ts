@@ -3,6 +3,7 @@ import type { LucideIcon } from "lucide-react";
 export type ProjectStatus =
   | "planned"
   | "in-progress"
+  | "completed"
   | "case-study"
   | "live"
   | "archived";
@@ -38,12 +39,26 @@ export type PortfolioSection = {
 };
 
 export type ProjectLinkSet = {
+  repo?: string;
   repository?: string;
   live?: string;
   api?: string;
   health?: string;
   documentation?: string;
   caseStudy?: string;
+};
+
+export type ProjectDeploymentEvidence = {
+  ownerConfirmed: boolean;
+  urlSource?: "repository-documentation" | "repository-configuration" | "owner-supplied" | "unresolved";
+  healthCheckVerified: boolean;
+  note?: string;
+};
+
+export type ProjectAction = {
+  label: "Live Demo" | "GitHub Repository" | "API Documentation" | "Architecture / Case Study";
+  priority: "primary" | "secondary" | "optional";
+  href?: string;
 };
 
 export type ProjectMetric = {
@@ -102,7 +117,9 @@ export type PortfolioProject = {
   metrics: ProjectMetric[];
   testing?: string;
   deployment?: string;
+  deploymentEvidence?: ProjectDeploymentEvidence;
   links: ProjectLinkSet;
+  actions?: ProjectAction[];
   media: ProjectMedia;
   architecture: ProjectArchitecture;
   accent?: string;
