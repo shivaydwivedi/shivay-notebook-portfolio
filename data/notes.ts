@@ -1,12 +1,12 @@
 import type { AlgorithmProfile, ArchitectureNote } from "@/types/portfolio";
 
-export const futureArchitectureNotes = [] satisfies ArchitectureNote[];
+export const futureArchitectureNotes: ArchitectureNote[] = [];
 
-export const futureAlgorithmProfile = {
+export const futureAlgorithmProfile: AlgorithmProfile = {
   stats: [],
   favoriteProblems: [],
   patterns: [],
   notes: []
-} satisfies AlgorithmProfile;
+};
 
-export const futureEngineeringWritingEntries = [] satisfies ArchitectureNote[];
+export const futureEngineeringWritingEntries: ArchitectureNote[] = [];
