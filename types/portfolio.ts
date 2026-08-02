@@ -61,6 +61,53 @@ export type ProjectAction = {
   href?: string;
 };
 
+export type PortfolioContentAction = {
+  label: "Live Demo" | "GitHub Repository" | "API Documentation" | "Architecture Notes";
+  href: string;
+  kind: "live" | "repository" | "documentation" | "architecture";
+};
+
+export type PortfolioContentTestingEvidence = {
+  framework: string;
+  verifiedStatus: string;
+  verifiedCount?: string;
+};
+
+export type PortfolioContentDeploymentEvidence = {
+  liveUrl: string;
+  repositoryUrl: string;
+  apiUrl?: string;
+  documentationUrl?: string;
+  healthUrl?: string;
+  ownerConfirmedNote: string;
+  urlSource: "repository documentation" | "repository configuration" | "owner supplied";
+  availabilityCheckStatus: string;
+};
+
+export type ProjectPortfolioContent = {
+  slug: string;
+  number: string;
+  name: string;
+  category: string;
+  status: "live";
+  shortLabel: string;
+  oneLine: string;
+  summary: string;
+  problem: string;
+  solution: string;
+  highlights: string[];
+  architectureSummary: string;
+  testingEvidence: PortfolioContentTestingEvidence;
+  testingSummary?: string;
+  deploymentEvidence: PortfolioContentDeploymentEvidence;
+  deploymentNote: string;
+  technicalDecisions: string[];
+  tradeoffs: string[];
+  limitations: string[];
+  actions: PortfolioContentAction[];
+  requiresOwnerConfirmation: string[];
+};
+
 export type ProjectMetric = {
   label: string;
   value: string;
