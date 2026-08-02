@@ -122,7 +122,7 @@ function ProjectSelector({ open, onSelect }: { open: number; onSelect: (index: n
               type="button"
               onClick={() => onSelect(index)}
               aria-pressed={selected}
-              aria-current={selected ? "true" : undefined}
+              aria-label={`${item.name}, ${item.category}, ${statusLabel}${selected ? ", selected project" : ""}`}
               className={cn(
                 "group w-[17rem] rounded-[8px] border border-border bg-background/65 p-4 text-left transition hover:-translate-y-0.5 hover:shadow-tab focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring xl:w-auto",
                 selected && "border-blue bg-blue/10 shadow-tab"
@@ -135,6 +135,7 @@ function ProjectSelector({ open, onSelect }: { open: number; onSelect: (index: n
               <div className="mt-3 flex flex-wrap items-center gap-2">
                 <h3 className="text-lg font-semibold">{item.name}</h3>
                 <StatusPill />
+                {selected ? <span className="sr-only">Selected project</span> : null}
               </div>
               <p className="mt-1 font-mono text-xs uppercase tracking-[0.16em] text-blue">{item.category}</p>
               {isFlagship ? (

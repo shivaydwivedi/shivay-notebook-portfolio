@@ -8,7 +8,7 @@ import { SelectedWorkSection } from "@/components/sections/selected-work-section
 
 export default function Home() {
   return (
-    <main className="px-3 pb-20">
+    <main id="main-content" className="px-3 pb-20" tabIndex={-1}>
       <HomeSection />
       <SelectedWorkSection />
       <CapabilitiesSection />

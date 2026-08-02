@@ -42,12 +42,14 @@ export function ProjectMediaGallery({
               type="button"
               onClick={() => setActiveIndex(index)}
               aria-pressed={activeIndex === index}
+              aria-label={`${asset.type.replace("-", " ")} for ${projectName}${activeIndex === index ? ", selected media" : ""}`}
               className={cn(
                 "min-h-10 rounded-md border border-border bg-paper px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                 activeIndex === index && "border-blue bg-blue/10"
               )}
             >
               {asset.type.replace("-", " ")}
+              {activeIndex === index ? <span className="sr-only">Selected media</span> : null}
             </button>
           ))}
         </div>

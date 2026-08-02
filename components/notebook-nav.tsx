@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import type { KeyboardEvent as ReactKeyboardEvent } from "react";
 import type { LucideIcon } from "lucide-react";
 import { Search } from "lucide-react";
 import { futureSections } from "@/data/sections";
@@ -25,6 +26,17 @@ export function NotebookNav() {
     setPaletteOpen(false);
     window.requestAnimationFrame(() => triggerRef.current?.focus());
   }, []);
+
+  useEffect(() => {
+    if (!paletteOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [paletteOpen]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -69,6 +81,7 @@ export function NotebookNav() {
               variant="outline"
               size="sm"
               onClick={() => setPaletteOpen(true)}
+              aria-label="Search notebook sections"
               aria-haspopup="dialog"
               aria-expanded={paletteOpen}
               aria-controls="notebook-command-palette"
@@ -108,7 +121,67 @@ export function NotebookNav() {
 
 function CommandPalette({ commands, onClose }: { commands: CommandItem[]; onClose: () => void }) {
   const [query, setQuery] = useState("");
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const filtered = commands.filter((item) => item.label.toLowerCase().includes(query.toLowerCase()));
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
+  useEffect(() => {
+    setSelectedIndex(0);
+  }, [query]);
+
+  const activateCommand = (item?: CommandItem) => {
+    if (!item) return;
+    window.location.hash = item.href;
+    onClose();
+  };
+
+  const onDialogKeyDown = (event: ReactKeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      onClose();
+      return;
+    }
+
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      setSelectedIndex((index) => (filtered.length ? (index + 1) % filtered.length : 0));
+      return;
+    }
+
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      setSelectedIndex((index) => (filtered.length ? (index - 1 + filtered.length) % filtered.length : 0));
+      return;
+    }
+
+    if (event.key === "Enter" && document.activeElement === inputRef.current) {
+      event.preventDefault();
+      activateCommand(filtered[selectedIndex]);
+      return;
+    }
+
+    if (event.key === "Tab") {
+      const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusable?.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+  };
 
   return (
     <div
@@ -118,8 +191,9 @@ function CommandPalette({ commands, onClose }: { commands: CommandItem[]; onClos
       aria-modal="true"
       aria-labelledby="notebook-command-palette-title"
       onClick={onClose}
+      onKeyDown={onDialogKeyDown}
     >
-      <div className="mx-auto mt-24 max-w-xl rounded-[8px] border border-border bg-paper p-2 shadow-paper" onClick={(event) => event.stopPropagation()}>
+      <div ref={dialogRef} className="mx-auto mt-24 max-w-xl rounded-[8px] border border-border bg-paper p-2 shadow-paper" onClick={(event) => event.stopPropagation()}>
         <div className="flex items-center gap-2 border-b border-border px-3 py-2">
           <Search className="size-4 text-muted-foreground" aria-hidden="true" />
           <label id="notebook-command-palette-title" className="sr-only" htmlFor="notebook-command-search">
@@ -127,26 +201,39 @@ function CommandPalette({ commands, onClose }: { commands: CommandItem[]; onClos
           </label>
           <input
             id="notebook-command-search"
-            autoFocus
+            ref={inputRef}
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Search notebook pages..."
             className="h-10 flex-1 bg-transparent text-sm outline-none"
+            aria-controls="notebook-command-results"
+            aria-activedescendant={filtered[selectedIndex] ? `notebook-command-${filtered[selectedIndex].id}` : undefined}
           />
         </div>
-        <div className="max-h-80 overflow-y-auto p-2">
-          {filtered.map((item) => (
+        <div id="notebook-command-results" className="max-h-80 overflow-y-auto p-2" role="listbox" aria-label="Notebook sections">
+          {filtered.map((item, index) => (
             <a
+              id={`notebook-command-${item.id}`}
               key={item.id}
               href={item.href}
               onClick={onClose}
-              className="flex items-center gap-3 rounded-md px-3 py-2 text-sm hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              role="option"
+              aria-selected={selectedIndex === index}
+              className={cn(
+                "flex items-center gap-3 rounded-md px-3 py-2 text-sm hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                selectedIndex === index && "bg-accent text-accent-foreground"
+              )}
+              onMouseEnter={() => setSelectedIndex(index)}
             >
               {item.icon ? <item.icon className="size-4 text-blue" aria-hidden="true" /> : null}
               {item.label}
             </a>
           ))}
-          {filtered.length === 0 ? <p className="px-3 py-4 text-sm text-muted-foreground">No matching notebook pages.</p> : null}
+          {filtered.length === 0 ? (
+            <p className="px-3 py-4 text-sm text-muted-foreground" role="status" aria-live="polite">
+              No matching notebook pages.
+            </p>
+          ) : null}
         </div>
       </div>
     </div>
