@@ -1,7 +1,7 @@
 "use client";
 
-import type { ReactNode } from "react";
-import { Code2, Download, Github, Linkedin, Mail, Send } from "lucide-react";
+import { useState, type ReactNode } from "react";
+import { ClipboardCopy, Code2, Download, Github, Linkedin, Mail, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionPage } from "@/components/section-page";
 import { siteProfile, verifiedEmail, verifiedGithubLink, verifiedLeetcodeLink, verifiedLinkedinLink, verifiedResume } from "@/data/site";
@@ -28,6 +28,19 @@ export function ContactSection() {
 }
 
 function EmailForm({ email }: { email: string }) {
+  const [copyStatus, setCopyStatus] = useState("");
+
+  const copyEmailAddress = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopyStatus("Email copied");
+    } catch {
+      setCopyStatus("Copy failed");
+    }
+
+    window.setTimeout(() => setCopyStatus(""), 2500);
+  };
+
   return (
     <form
       className="grid gap-4 rounded-[8px] border border-border bg-background/55 p-5"
@@ -63,9 +76,17 @@ function EmailForm({ email }: { email: string }) {
         Message
         <textarea id="contact-message" className="min-h-32 rounded-md border border-border bg-background p-3 outline-none focus:ring-2 focus:ring-ring" name="message" autoComplete="off" required />
       </label>
-      <Button type="submit" className="w-fit">
-        <Mail className="size-4" aria-hidden="true" /> Open email client
-      </Button>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <Button type="submit" className="w-full sm:w-fit">
+          <Mail className="size-4" aria-hidden="true" /> Open email client
+        </Button>
+        <Button type="button" variant="outline" className="w-full sm:w-fit" onClick={copyEmailAddress}>
+          <ClipboardCopy className="size-4" aria-hidden="true" /> Copy email address
+        </Button>
+      </div>
+      <p className="min-h-5 text-sm text-muted-foreground" role="status" aria-live="polite">
+        {copyStatus}
+      </p>
     </form>
   );
 }
