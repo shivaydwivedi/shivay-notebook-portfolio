@@ -1,42 +1,42 @@
 import type { SiteMetadataConfig, SiteProfile } from "@/types/portfolio";
 
-export const siteProfile = {
+export const siteProfile: SiteProfile = {
   name: "Shivay Dwivedi",
   role: "Backend Developer | Python - Django - DRF",
   headline: "Building backend systems with Python and Django.",
   shortBiography:
     "I am a Computer Science undergraduate focused on backend engineering, APIs, authentication systems, and algorithmic problem solving.",
+  availabilityStatus:
+    "Open to backend engineering internships, junior developer roles, freelance work, and other relevant opportunities.",
+  availabilityIsPlaceholder: false,
   contact: {
-    email: "shivay@example.com", // TODO: Replace with Shivay's verified contact email.
-    emailIsPlaceholder: true,
+    email: "shivayforwork@gmail.com",
+    emailIsPlaceholder: false,
     resumePath: "/resume.pdf", // TODO: Replace the placeholder resume file with Shivay's final resume.
     resume: {
       path: "/resume.pdf",
-      label: "Resume",
+      label: "Résumé",
       isPlaceholder: true
     },
     socialLinks: [
       {
         label: "GitHub",
         href: "https://github.com/shivaydwivedi",
-        platform: "github",
-        isPlaceholder: true
+        platform: "github"
       },
       {
         label: "LinkedIn",
-        href: "https://www.linkedin.com/in/shivaydwivedi",
-        platform: "linkedin",
-        isPlaceholder: true
+        href: "https://www.linkedin.com/in/shivay-dwivedi-54785b304",
+        platform: "linkedin"
       },
       {
         label: "LeetCode",
-        href: "https://leetcode.com/",
-        platform: "leetcode",
-        isPlaceholder: true
+        href: "https://leetcode.com/u/shivay_d/",
+        platform: "leetcode"
       }
     ]
   }
-} satisfies SiteProfile;
+};
 
 export const siteMetadata: SiteMetadataConfig = {
   title: "Shivay Dwivedi - Backend Engineer",

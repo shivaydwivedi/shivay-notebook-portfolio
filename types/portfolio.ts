@@ -179,7 +179,6 @@ export type ProjectMediaSet = {
   primary?: ProjectMediaAsset;
   secondary?: ProjectMediaAsset[];
   externalDemoVideo?: string;
-  pendingMessage?: string;
 };
 
 export type ArchitectureNode = {

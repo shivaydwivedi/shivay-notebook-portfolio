@@ -5,8 +5,8 @@ import { futureAlgorithmProfile } from "@/data/notes";
 import { verifiedLeetcodeLink } from "@/data/site";
 
 const practiceFocus = [
-  "Algorithm notes and problem-solving history will be added after profile verification.",
-  "No solved-count, rating, streak, or heatmap data is currently published from unverified sources."
+  "Backend interview practice centered on data structures, APIs, and system reasoning.",
+  "Notes emphasize problem patterns, tradeoffs, and clear implementation traces."
 ];
 
 export function AlgorithmNotebookSection() {
@@ -27,7 +27,7 @@ export function AlgorithmNotebookSection() {
     <SectionPage id="algorithm-notebook" label="Algorithm Notebook">
       <h2 id="algorithm-notebook-title" className="mt-5 text-4xl font-bold tracking-tight">Algorithm notebook</h2>
       <p className="mt-4 max-w-3xl leading-8 text-muted-foreground">
-        Coding-practice data is intentionally restrained until Shivay&apos;s profile statistics and topic history are verified.
+        A compact notebook page for algorithm practice and implementation thinking.
       </p>
 
       <div className="mt-8 grid gap-4 md:grid-cols-2">
@@ -44,64 +44,60 @@ export function AlgorithmNotebookSection() {
           </ul>
         </article>
 
-        <article className="rounded-[8px] border border-dashed border-border bg-background/55 p-5">
-          <h3 className="text-xl font-semibold">Verified statistics</h3>
-          {hasVerifiedStats || hasVerifiedPatterns || hasVerifiedProfileFields ? (
-            <div className="mt-4 grid gap-3 text-sm text-muted-foreground">
-              {futureAlgorithmProfile.totalSolved ? (
-                <p>
-                  <strong>Total solved:</strong> {futureAlgorithmProfile.totalSolved}
-                </p>
-              ) : null}
-              {futureAlgorithmProfile.easyCount ? (
-                <p>
-                  <strong>Easy:</strong> {futureAlgorithmProfile.easyCount}
-                </p>
-              ) : null}
-              {futureAlgorithmProfile.mediumCount ? (
-                <p>
-                  <strong>Medium:</strong> {futureAlgorithmProfile.mediumCount}
-                </p>
-              ) : null}
-              {futureAlgorithmProfile.hardCount ? (
-                <p>
-                  <strong>Hard:</strong> {futureAlgorithmProfile.hardCount}
-                </p>
-              ) : null}
-              {futureAlgorithmProfile.contestRating ? (
-                <p>
-                  <strong>Contest rating:</strong> {futureAlgorithmProfile.contestRating}
-                </p>
-              ) : null}
-              {futureAlgorithmProfile.stats.map((stat) => (
-                <p key={stat.label}>
-                  <strong>{stat.label}:</strong> {stat.value}
-                </p>
-              ))}
-              {futureAlgorithmProfile.strongestTopics?.length ? <p>Strongest topics: {futureAlgorithmProfile.strongestTopics.join(", ")}</p> : null}
-              {futureAlgorithmProfile.patterns.length ? <p>Patterns: {futureAlgorithmProfile.patterns.join(", ")}</p> : null}
-              {futureAlgorithmProfile.lastVerifiedDate ? <p>Last verified: {futureAlgorithmProfile.lastVerifiedDate}</p> : null}
-            </div>
-          ) : (
-            <p className="mt-4 text-sm leading-6 text-muted-foreground">
-              Statistics will be added after verification. The previous synthetic heatmap and placeholder counts are no longer visible.
-            </p>
-          )}
+        {hasVerifiedStats || hasVerifiedPatterns || hasVerifiedProfileFields || verifiedLeetCodeHref ? (
+          <article className="rounded-[8px] border border-dashed border-border bg-background/55 p-5">
+            {(hasVerifiedStats || hasVerifiedPatterns || hasVerifiedProfileFields) ? (
+              <>
+                <h3 className="text-xl font-semibold">Practice statistics</h3>
+                <div className="mt-4 grid gap-3 text-sm text-muted-foreground">
+                  {futureAlgorithmProfile.totalSolved ? (
+                    <p>
+                      <strong>Total solved:</strong> {futureAlgorithmProfile.totalSolved}
+                    </p>
+                  ) : null}
+                  {futureAlgorithmProfile.easyCount ? (
+                    <p>
+                      <strong>Easy:</strong> {futureAlgorithmProfile.easyCount}
+                    </p>
+                  ) : null}
+                  {futureAlgorithmProfile.mediumCount ? (
+                    <p>
+                      <strong>Medium:</strong> {futureAlgorithmProfile.mediumCount}
+                    </p>
+                  ) : null}
+                  {futureAlgorithmProfile.hardCount ? (
+                    <p>
+                      <strong>Hard:</strong> {futureAlgorithmProfile.hardCount}
+                    </p>
+                  ) : null}
+                  {futureAlgorithmProfile.contestRating ? (
+                    <p>
+                      <strong>Contest rating:</strong> {futureAlgorithmProfile.contestRating}
+                    </p>
+                  ) : null}
+                  {futureAlgorithmProfile.stats.map((stat) => (
+                    <p key={stat.label}>
+                      <strong>{stat.label}:</strong> {stat.value}
+                    </p>
+                  ))}
+                  {futureAlgorithmProfile.strongestTopics?.length ? <p>Strongest topics: {futureAlgorithmProfile.strongestTopics.join(", ")}</p> : null}
+                  {futureAlgorithmProfile.patterns.length ? <p>Patterns: {futureAlgorithmProfile.patterns.join(", ")}</p> : null}
+                  {futureAlgorithmProfile.lastVerifiedDate ? <p>Last checked: {futureAlgorithmProfile.lastVerifiedDate}</p> : null}
+                </div>
+              </>
+            ) : null}
 
-          <div className="mt-5">
             {verifiedLeetCodeHref ? (
-              <Button asChild variant="outline">
-                <a href={verifiedLeetCodeHref} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="size-4" aria-hidden="true" /> LeetCode profile
-                </a>
-              </Button>
-            ) : (
-              <Button variant="outline" disabled>
-                <ExternalLink className="size-4" aria-hidden="true" /> LeetCode profile pending
-              </Button>
-            )}
-          </div>
-        </article>
+              <div className={(hasVerifiedStats || hasVerifiedPatterns || hasVerifiedProfileFields) ? "mt-5" : undefined}>
+                <Button asChild variant="outline">
+                  <a href={verifiedLeetCodeHref} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="size-4" aria-hidden="true" /> LeetCode profile
+                  </a>
+                </Button>
+              </div>
+            ) : null}
+          </article>
+        ) : null}
       </div>
     </SectionPage>
   );

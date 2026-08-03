@@ -1,18 +1,21 @@
 import { projectPortfolioContent } from "@/data/project-content";
-import { siteMetadata, siteProfile } from "@/data/site";
+import { siteMetadata, siteProfile, verifiedGithubLink, verifiedLeetcodeLink, verifiedLinkedinLink } from "@/data/site";
 
 function safeJsonLd(data: unknown) {
   return JSON.stringify(data).replace(/</g, "\\u003c");
 }
 
 export function StructuredData() {
+  const sameAs = [verifiedGithubLink?.href, verifiedLinkedinLink?.href, verifiedLeetcodeLink?.href].filter(Boolean);
+
   const person = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: siteProfile.name,
     jobTitle: "Backend Engineer",
     description: siteProfile.shortBiography,
-    knowsAbout: ["Python", "Django", "Node.js", "APIs", "Database-backed systems"]
+    knowsAbout: ["Python", "Django", "Node.js", "APIs", "Database-backed systems"],
+    ...(sameAs.length ? { sameAs } : {})
   };
 
   const projectList = {

@@ -26,14 +26,13 @@ export function ProjectMediaGallery({
         projectName={projectName}
         architectureSummary={architectureSummary}
         stack={stack}
-        media={media}
       />
     );
   }
 
   return (
     <div className="grid gap-3">
-      <ProjectMedia projectName={projectName} architectureSummary={architectureSummary} stack={stack} media={media} asset={active} />
+      <ProjectMedia projectName={projectName} architectureSummary={architectureSummary} stack={stack} asset={active} />
       {approvedMedia.length > 1 ? (
         <div className="flex flex-wrap gap-2" aria-label={`${projectName} media gallery`}>
           {approvedMedia.map((asset: ProjectMediaAsset, index) => (

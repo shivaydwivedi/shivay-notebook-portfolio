@@ -47,8 +47,25 @@ export const projectPortfolioContent = [
     deploymentNote:
       "Render deployment URL is documented in the repository and deployment is owner-confirmed. Automated health availability was not confirmed during the Phase 3 audit.",
     media: {
-      status: "pending",
-      pendingMessage: "Project media pending approval."
+      status: "approved",
+      primary: {
+        src: "/images/projects/blogify/api-documentation.png",
+        alt: "Blogify API documentation page listing authentication and bookmark endpoints.",
+        caption: "Interactive API documentation showing Blogify's authentication and bookmark routes.",
+        type: "api-documentation",
+        width: 1891,
+        height: 1018
+      },
+      secondary: [
+        {
+          src: "/images/projects/blogify/django_admin.png",
+          alt: "Django administration dashboard for Blogify with content, account, bookmark, comment, like, notification, and post models.",
+          caption: "Django admin interface for managing Blogify content and engagement models.",
+          type: "dashboard",
+          width: 1919,
+          height: 1079
+        }
+      ]
     },
     technicalDecisions: [
       "Use a modular Django monolith instead of separate services for each domain.",
@@ -114,8 +131,25 @@ export const projectPortfolioContent = [
     deploymentNote:
       "Repository documentation lists the Vercel web app and Render API, and deployment is owner-confirmed. Automated API health availability was not confirmed during the Phase 3 audit.",
     media: {
-      status: "pending",
-      pendingMessage: "Project media pending approval."
+      status: "approved",
+      primary: {
+        src: "/images/projects/reduc-to/create-link.png",
+        alt: "Reduc.to dashboard form for creating a short link with destination URL, custom alias, title, and expiry fields.",
+        caption: "Short-link creation workflow with destination, alias, title, and expiry inputs.",
+        type: "application",
+        width: 1733,
+        height: 237
+      },
+      secondary: [
+        {
+          src: "/images/projects/reduc-to/dashboard.png",
+          alt: "Reduc.to dashboard showing a create-link form and active short-link cards with click counts and management buttons.",
+          caption: "Link-management dashboard with active links, click counts, and owner actions.",
+          type: "dashboard",
+          width: 1919,
+          height: 1079
+        }
+      ]
     },
     technicalDecisions: [
       "Use npm workspaces to separate API, web, and shared package boundaries.",
@@ -184,8 +218,25 @@ export const projectPortfolioContent = [
     deploymentNote:
       "Repository documentation lists the Render service URL, and deployment is owner-confirmed. Automated health availability was not confirmed during the Phase 3 audit.",
     media: {
-      status: "pending",
-      pendingMessage: "Project media pending approval."
+      status: "approved",
+      primary: {
+        src: "/images/projects/pagepulse/audit-form.png",
+        alt: "PagePulse audit form with a page URL field and Run audit button.",
+        caption: "Public page audit form with a URL input and clear safety guidance.",
+        type: "application",
+        width: 1130,
+        height: 303
+      },
+      secondary: [
+        {
+          src: "/images/projects/pagepulse/result.png",
+          alt: "PagePulse report showing score, grade, final URL, HTTP status, response time, and issue counts.",
+          caption: "Generated audit report with score, status, response time, and issue summaries.",
+          type: "dashboard",
+          width: 1228,
+          height: 446
+        }
+      ]
     },
     technicalDecisions: [
       "Use static HTML analysis rather than browser rendering or Lighthouse measurement.",
@@ -257,8 +308,25 @@ export const projectPortfolioContent = [
     deploymentNote:
       "Repository documentation lists the Vercel frontend and Render backend, and deployment is owner-confirmed. Automated backend availability was not confirmed during the Phase 3 audit.",
     media: {
-      status: "pending",
-      pendingMessage: "Project media pending approval."
+      status: "approved",
+      primary: {
+        src: "/images/projects/chatwat/live-chat.png",
+        alt: "ChatWat welcome screen with a username field, light theme toggle, and Continue button.",
+        caption: "Chat entry screen for choosing a display name before loading saved history.",
+        type: "application",
+        width: 1879,
+        height: 958
+      },
+      secondary: [
+        {
+          src: "/images/projects/chatwat/message-history.png",
+          alt: "ChatWat chat interface with message bubbles, online users, connection status, and a message composer.",
+          caption: "Real-time chat view with persisted messages, presence, and message composer.",
+          type: "dashboard",
+          width: 1911,
+          height: 1080
+        }
+      ]
     },
     technicalDecisions: [
       "Share message creation logic between REST and Socket.io write paths.",
@@ -329,8 +397,25 @@ export const projectPortfolioContent = [
     deploymentNote:
       "Repository configuration identifies the Render service URL, and deployment is owner-confirmed. Automated health availability was not confirmed during the Phase 3 audit.",
     media: {
-      status: "pending",
-      pendingMessage: "Project media pending approval."
+      status: "approved",
+      primary: {
+        src: "/images/projects/sonica/dashboard.png",
+        alt: "Sonica music library dashboard with recently played songs, all songs, search, navigation, and audio player.",
+        caption: "Music-library dashboard with recent plays, catalog browsing, search, and player controls.",
+        type: "dashboard",
+        width: 1919,
+        height: 1079
+      },
+      secondary: [
+        {
+          src: "/images/projects/sonica/song_details.png",
+          alt: "Sonica song detail page with album artwork, song metadata, audio preview, playlist action, and favourite action.",
+          caption: "Song detail and playback screen with metadata, playlist, and favourite actions.",
+          type: "application",
+          width: 1919,
+          height: 1079
+        }
+      ]
     },
     technicalDecisions: [
       "Keep SQLite as the local default and use `DATABASE_URL` for PostgreSQL deployment.",

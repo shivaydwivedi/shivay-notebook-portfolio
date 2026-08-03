@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { ArrowDown, BookMarked, Download, Sparkles } from "lucide-react";
+import { ArrowDown, BookMarked, Code2, Download, Github, Linkedin, Mail, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { siteProfile, verifiedEmail, verifiedResume } from "@/data/site";
+import { siteProfile, verifiedEmail, verifiedGithubLink, verifiedLeetcodeLink, verifiedLinkedinLink, verifiedResume } from "@/data/site";
 
 export function HomeSection() {
   return (
@@ -33,6 +33,11 @@ export function HomeSection() {
             </h1>
             <p className="type-caret mt-6 font-mono text-xl text-blue md:text-2xl">{siteProfile.role}</p>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-muted-foreground">{siteProfile.headline}</p>
+            {siteProfile.availabilityStatus ? (
+              <p className="mt-4 max-w-2xl rounded-[8px] border border-border bg-paper/75 px-4 py-3 text-sm leading-6 text-muted-foreground">
+                {siteProfile.availabilityStatus}
+              </p>
+            ) : null}
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild>
                 <a href="#selected-work">
@@ -47,12 +52,35 @@ export function HomeSection() {
                 </Button>
               ) : (
                 <Button variant="outline" disabled>
-                  <Download className="size-4" aria-hidden="true" /> Resume pending
+                  <Download className="size-4" aria-hidden="true" /> Résumé coming soon
                 </Button>
               )}
               {verifiedEmail ? (
                 <Button asChild variant="outline">
-                  <a href="#contact">Contact</a>
+                  <a href="#contact">
+                    <Mail className="size-4" aria-hidden="true" /> Contact
+                  </a>
+                </Button>
+              ) : null}
+              {verifiedGithubLink ? (
+                <Button asChild variant="outline">
+                  <a href={verifiedGithubLink.href} target="_blank" rel="noopener noreferrer" aria-label="Open Shivay Dwivedi's GitHub profile">
+                    <Github className="size-4" aria-hidden="true" /> GitHub
+                  </a>
+                </Button>
+              ) : null}
+              {verifiedLinkedinLink ? (
+                <Button asChild variant="outline">
+                  <a href={verifiedLinkedinLink.href} target="_blank" rel="noopener noreferrer" aria-label="Open Shivay Dwivedi's LinkedIn profile">
+                    <Linkedin className="size-4" aria-hidden="true" /> LinkedIn
+                  </a>
+                </Button>
+              ) : null}
+              {verifiedLeetcodeLink ? (
+                <Button asChild variant="outline">
+                  <a href={verifiedLeetcodeLink.href} target="_blank" rel="noopener noreferrer" aria-label="Open Shivay Dwivedi's LeetCode profile">
+                    <Code2 className="size-4" aria-hidden="true" /> LeetCode
+                  </a>
                 </Button>
               ) : null}
             </div>

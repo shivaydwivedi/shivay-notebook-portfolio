@@ -1,29 +1,25 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { Download, Github, Linkedin, Mail, Send } from "lucide-react";
+import { Code2, Download, Github, Linkedin, Mail, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionPage } from "@/components/section-page";
-import { siteProfile, verifiedEmail, verifiedGithubLink, verifiedLinkedinLink, verifiedResume } from "@/data/site";
+import { siteProfile, verifiedEmail, verifiedGithubLink, verifiedLeetcodeLink, verifiedLinkedinLink, verifiedResume } from "@/data/site";
 
 export function ContactSection() {
   return (
     <SectionPage id="contact" label="Contact">
       <h2 id="contact-title" className="mt-5 text-4xl font-bold tracking-tight">Final page: write back</h2>
       <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_0.8fr]">
-        {verifiedEmail ? <EmailForm email={verifiedEmail} /> : <PendingContact />}
+        {verifiedEmail ? <EmailForm email={verifiedEmail} /> : <ContactOverview />}
 
         <aside className="rounded-[8px] border border-border bg-background/55 p-5">
           <h3 className="text-xl font-semibold">Profile links</h3>
           <div className="mt-5 grid gap-3">
             <ProfileAction icon={<Github className="size-4" aria-hidden="true" />} label="GitHub" href={verifiedGithubLink?.href} />
             <ProfileAction icon={<Linkedin className="size-4" aria-hidden="true" />} label="LinkedIn" href={verifiedLinkedinLink?.href} />
-            <ProfileAction icon={<Download className="size-4" aria-hidden="true" />} label={verifiedResume?.label ?? "Resume"} href={verifiedResume?.path} />
-          </div>
-          <div className="mt-8 rounded-[8px] border border-dashed border-border bg-paper p-4">
-            <p className="text-sm leading-6 text-muted-foreground">
-              Current source of truth: {siteProfile.name}, {siteProfile.role}. Email, resume, social profiles, location, and availability remain placeholder-gated until owner verification.
-            </p>
+            <ProfileAction icon={<Code2 className="size-4" aria-hidden="true" />} label="LeetCode" href={verifiedLeetcodeLink?.href} />
+            <ProfileAction icon={<Download className="size-4" aria-hidden="true" />} label={verifiedResume?.label ?? "Résumé"} href={verifiedResume?.path} />
           </div>
         </aside>
       </div>
@@ -74,45 +70,34 @@ function EmailForm({ email }: { email: string }) {
   );
 }
 
-function PendingContact() {
+function ContactOverview() {
   return (
-    <div className="rounded-[8px] border border-dashed border-border bg-background/55 p-5">
+    <div className="rounded-[8px] border border-border bg-background/55 p-5">
       <Send className="size-6 text-blue" aria-hidden="true" />
-      <h3 className="mt-4 text-xl font-semibold">Contact details pending verification</h3>
+      <h3 className="mt-4 text-xl font-semibold">{siteProfile.name}</h3>
+      <p className="mt-3 leading-7 text-muted-foreground">{siteProfile.role}</p>
       <p className="mt-3 leading-7 text-muted-foreground">
-        A verified email address or external form service has not been approved yet. The placeholder address is intentionally not exposed as a mailto form.
+        Selected work, architecture notes, and live project links are available above for review.
       </p>
-      <div className="mt-5 grid gap-3">
-        <StatusRow icon={<Mail className="size-4" aria-hidden="true" />} label="Email" status="Pending owner verification" />
-        <StatusRow icon={<Download className="size-4" aria-hidden="true" />} label="Resume" status="Final resume pending verification" />
-      </div>
-    </div>
-  );
-}
-
-function StatusRow({ icon, label, status }: { icon: ReactNode; label: string; status: string }) {
-  return (
-    <div className="flex items-center gap-3 rounded-md border border-border bg-paper px-3 py-2 text-sm">
-      {icon}
-      <span className="font-medium">{label}</span>
-      <span className="ml-auto text-right text-muted-foreground">{status}</span>
     </div>
   );
 }
 
 function ProfileAction({ icon, label, href }: { icon: ReactNode; label: string; href?: string }) {
   if (!href) {
+    if (label !== "Résumé") return null;
+
     return (
       <Button variant="outline" disabled className="justify-start">
         {icon}
-        {label} pending
+        Résumé coming soon
       </Button>
     );
   }
 
   return (
     <Button asChild variant="outline" className="justify-start">
-      <a href={href} target="_blank" rel="noopener noreferrer">
+      <a href={href} target="_blank" rel="noopener noreferrer" aria-label={`Open Shivay Dwivedi's ${label} profile`}>
         {icon}
         {label}
       </a>
