@@ -99,6 +99,3 @@ jobs:
         uses: actions/deploy-pages@v4
 ```
 
-## Notes
-
-LeetCode stats are currently represented with polished static content and a synthetic heatmap. To fetch live stats, connect a LeetCode GraphQL proxy or a serverless API route, then replace the static values in `data/portfolio.ts`.
