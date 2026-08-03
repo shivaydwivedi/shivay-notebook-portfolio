@@ -12,11 +12,11 @@ export const siteProfile: SiteProfile = {
   contact: {
     email: "shivayforwork@gmail.com",
     emailIsPlaceholder: false,
-    resumePath: "/resume.pdf", // TODO: Replace the placeholder resume file with Shivay's final resume.
+    resumePath: "/Shivay_Dwivedi_Backend_Resume.pdf",
     resume: {
-      path: "/resume.pdf",
-      label: "Résumé",
-      isPlaceholder: true
+      path: "/Shivay_Dwivedi_Backend_Resume.pdf",
+      label: "Download résumé",
+      isPlaceholder: false
     },
     socialLinks: [
       {

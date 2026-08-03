@@ -34,7 +34,7 @@ This project uses `output: "export"` in `next.config.mjs`, so a static site is e
 
 - Edit profile links in `lib/utils.ts`.
 - Edit project, skills, timeline, blog, certificate, and system-design content in `data/portfolio.ts`.
-- Replace `public/resume.pdf` with the final resume.
+- The final résumé is served from `public/Shivay_Dwivedi_Backend_Resume.pdf`.
 - Replace files in `public/certificates/` with real certificates.
 - Replace `public/images/engineering-notebook-hero.png` if a different hero image is preferred.
 

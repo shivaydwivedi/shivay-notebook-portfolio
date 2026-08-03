@@ -101,7 +101,7 @@ Confirmed placeholders or unverified values:
 - Project GitHub links are all `https://github.com/`.
 - Project demo links are all `https://example.com`.
 - Certificate records are explicitly marked `"PDF placeholder"`.
-- `public/resume.pdf` is only 672 bytes and should be treated as a placeholder until Shivay confirms it is final.
+- The final approved résumé is now integrated at `public/Shivay_Dwivedi_Backend_Resume.pdf`.
 - Certificate PDFs are 646-654 bytes and should be treated as placeholders until confirmed.
 - `LeetCodeHeatmap` is synthetic.
 - README states the LeetCode stats are static and the heatmap is synthetic.
@@ -305,7 +305,7 @@ Recommended target sections:
 - `components/section-page.tsx`: refined notebook page wrapper and spacing.
 - `components/theme-toggle.tsx`: hydration/fallback polish if needed.
 - `README.md`: update after redesign decisions are implemented.
-- `public/resume.pdf`: replace only when Shivay provides the final resume.
+- `public/Shivay_Dwivedi_Backend_Resume.pdf`: keep as the canonical final résumé asset unless Shivay supplies a replacement.
 - `public/certificates/*`: replace only when real certificate files are provided.
 - `public/images/*`: optimize and add real project imagery if available.
 

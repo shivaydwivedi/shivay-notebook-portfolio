@@ -19,7 +19,9 @@ export function ContactSection() {
             <ProfileAction icon={<Github className="size-4" aria-hidden="true" />} label="GitHub" href={verifiedGithubLink?.href} />
             <ProfileAction icon={<Linkedin className="size-4" aria-hidden="true" />} label="LinkedIn" href={verifiedLinkedinLink?.href} />
             <ProfileAction icon={<Code2 className="size-4" aria-hidden="true" />} label="LeetCode" href={verifiedLeetcodeLink?.href} />
-            <ProfileAction icon={<Download className="size-4" aria-hidden="true" />} label={verifiedResume?.label ?? "Résumé"} href={verifiedResume?.path} />
+            {verifiedResume ? (
+              <ProfileAction icon={<Download className="size-4" aria-hidden="true" />} label={verifiedResume.label} href={verifiedResume.path} download />
+            ) : null}
           </div>
         </aside>
       </div>
@@ -104,21 +106,12 @@ function ContactOverview() {
   );
 }
 
-function ProfileAction({ icon, label, href }: { icon: ReactNode; label: string; href?: string }) {
-  if (!href) {
-    if (label !== "Résumé") return null;
-
-    return (
-      <Button variant="outline" disabled className="justify-start">
-        {icon}
-        Résumé coming soon
-      </Button>
-    );
-  }
+function ProfileAction({ icon, label, href, download = false }: { icon: ReactNode; label: string; href?: string; download?: boolean }) {
+  if (!href) return null;
 
   return (
     <Button asChild variant="outline" className="justify-start">
-      <a href={href} target="_blank" rel="noopener noreferrer" aria-label={`Open Shivay Dwivedi's ${label} profile`}>
+      <a href={href} target="_blank" rel="noopener noreferrer" download={download || undefined} aria-label={download ? "Download Shivay Dwivedi's résumé" : `Open Shivay Dwivedi's ${label} profile`}>
         {icon}
         {label}
       </a>

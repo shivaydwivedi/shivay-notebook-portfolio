@@ -29,17 +29,13 @@ The goal was to keep the public portfolio from exposing development-process lang
 | `components/sections/contact-section.tsx` | `Contact details pending verification` | Remove because optional content should be hidden | Replaced the missing-contact state with an intentional profile/review panel. |
 | `components/sections/contact-section.tsx` | `A verified email address or external form service has not been approved yet. The placeholder address is intentionally not exposed as a mailto form.` | Move from public UI into internal documentation | Removed the process explanation from the public interface. Placeholder email remains hidden by data gates. |
 | `components/sections/contact-section.tsx` | `Pending owner verification` | Remove because optional content should be hidden | Removed the public status row. |
-| `components/sections/contact-section.tsx` | `Final resume pending verification` | Retain only when an honest disabled action is necessary | Replaced with the allowed disabled action label `Résumé coming soon`. |
-| `components/sections/contact-section.tsx` | `{label} pending` for missing profile links | Remove because optional content should be hidden | Missing GitHub and LinkedIn actions now render nothing. Missing résumé renders only `Résumé coming soon`. |
-| `components/sections/home-section.tsx` | `Resume pending` | Retain only when an honest disabled action is necessary | Replaced with the allowed disabled action label `Résumé coming soon`. |
+| `components/sections/contact-section.tsx` | Previous missing résumé state | Replace with verified owner content | Replaced with the active `Download résumé` action after the final approved résumé was supplied. |
+| `components/sections/contact-section.tsx` | `{label} pending` for missing profile links | Remove because optional content should be hidden | Missing GitHub and LinkedIn actions now render nothing. Résumé now renders only when the verified résumé record exists. |
+| `components/sections/home-section.tsx` | Previous missing resume state | Replace with verified owner content | Replaced with the active `Download résumé` action after the final approved résumé was supplied. |
 
 ## Intentionally Retained Public Placeholder
 
-The only retained public placeholder-style phrase is:
-
-- `Résumé coming soon`
-
-This appears as a small disabled résumé action in the Home and Contact sections until Shivay supplies the final résumé.
+No public résumé placeholder is retained after final résumé integration.
 
 ## Hidden Optional Content
 
@@ -61,11 +57,11 @@ These strings remain in internal data types, verification fields, or documentati
 - `status: "pending"` for project media state in `data/project-content.ts`; this is a non-rendered state flag.
 - `not configured` in project evidence/limitations where it documents verified repository state, such as CI/CD status.
 - Historical phase reports and verification docs that describe earlier placeholder and approval states.
-- Placeholder PDF file contents under `public/resume.pdf` and `public/certificates/*.pdf`; these files remain unlinked while the relevant verified content is absent.
+- Placeholder certificate PDF files remain unlinked while the relevant verified content is absent.
 
 ## Replacement Category Summary
 
-- Replace with verified owner content later: email, GitHub, LinkedIn, LeetCode, résumé, project screenshots, project media alt text.
+- Replace with verified owner content later: remaining certificate assets and any future project media replacements.
 - Remove because optional content should be hidden: missing coding statistics, missing LeetCode action, missing GitHub/LinkedIn actions, public missing-contact explanations.
-- Retain only when an honest disabled action is necessary: `Résumé coming soon`.
+- Retain only when an honest disabled action is necessary: none for résumé after final integration.
 - Move from public UI into internal documentation: project-media approval language, placeholder email explanation, historical verification/process notes.

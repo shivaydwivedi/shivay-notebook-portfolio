@@ -6,7 +6,7 @@
 - [ ] Verify GitHub profile URL.
 - [ ] Verify LinkedIn profile URL.
 - [ ] Verify LeetCode profile URL.
-- [ ] Replace placeholder `public/resume.pdf` with Shivay's final approved resume.
+- [x] Attach Shivay's final approved résumé at `public/Shivay_Dwivedi_Backend_Resume.pdf`.
 - [ ] Confirm the final public portfolio domain.
 - [ ] Confirm final availability text.
 

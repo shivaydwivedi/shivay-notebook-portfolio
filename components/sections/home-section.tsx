@@ -43,15 +43,11 @@ export function HomeSection() {
               </Button>
               {verifiedResume ? (
                 <Button asChild variant="outline">
-                  <a href={verifiedResume.path} target="_blank" rel="noopener noreferrer">
+                  <a href={verifiedResume.path} target="_blank" rel="noopener noreferrer" download aria-label="Download Shivay Dwivedi's résumé">
                     <Download className="size-4" aria-hidden="true" /> {verifiedResume.label}
                   </a>
                 </Button>
-              ) : (
-                <Button variant="outline" disabled>
-                  <Download className="size-4" aria-hidden="true" /> Résumé coming soon
-                </Button>
-              )}
+              ) : null}
               {verifiedEmail ? (
                 <Button asChild variant="outline">
                   <a href="#contact">

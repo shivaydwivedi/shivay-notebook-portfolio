@@ -58,9 +58,9 @@ Only `.gitkeep` files were added. No fake image files were created.
 
 ## Resume status
 
-- No final resume was supplied.
-- `public/resume.pdf` remains treated as a placeholder.
-- Home and Contact do not present the placeholder resume as a final active resume link.
+- The final approved résumé is now supplied.
+- `public/Shivay_Dwivedi_Backend_Resume.pdf` is the active résumé file.
+- Home and Contact present the résumé through an active `Download résumé` action.
 
 ## Algorithm-profile status
 
@@ -75,7 +75,7 @@ Safe to review for later removal after launch-content decisions:
 - `components/leetcode-heatmap.tsx`: no longer used by the visible page.
 - `data/portfolio.ts`: historical placeholder data source no longer used by the visible page.
 - `public/certificates/*.pdf`: placeholder certificate PDFs, not currently visible.
-- `public/resume.pdf`: placeholder resume, not currently presented as final.
+- Final résumé is available at `public/Shivay_Dwivedi_Backend_Resume.pdf`.
 
 Retained intentionally:
 
@@ -84,7 +84,7 @@ Retained intentionally:
 ## Manual checks required
 
 - Confirm final profile links and email with Shivay.
-- Replace placeholder resume only after final resume is supplied.
+- Final approved résumé has been supplied and integrated.
 - Capture and approve real screenshots according to `docs/project-media-checklist.md`.
 - Verify image crops and captions after screenshots are added.
 - Check mobile Selected Work after real media is inserted.

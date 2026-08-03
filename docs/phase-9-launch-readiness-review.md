@@ -97,12 +97,11 @@ Removed definitely unused source files:
 
 Retained placeholders:
 
-- `public/resume.pdf`
 - `public/certificates/python-programming.pdf`
 - `public/certificates/django-backend.pdf`
 - `public/certificates/database-fundamentals.pdf`
 
-The retained PDFs are not currently exposed through verified live actions and should be replaced or removed in an owner-approved content phase.
+The retained certificate PDFs are not currently exposed through verified live actions and should be replaced or removed in an owner-approved content phase. The final approved résumé is now integrated at `public/Shivay_Dwivedi_Backend_Resume.pdf`.
 
 ## Lint-Script Status
 

@@ -37,11 +37,11 @@ Home and Contact render verified profile links from `data/site.ts`.
 
 ## Résumé Handling
 
-The final résumé is not ready.
+The final approved résumé is now integrated.
 
-- `public/resume.pdf` is not linked.
-- `verifiedResume` remains undefined because the résumé record is still marked as a placeholder.
-- The only public résumé action is the disabled label `Résumé coming soon`.
+- `public/Shivay_Dwivedi_Backend_Resume.pdf` is the active public résumé file.
+- `verifiedResume` now resolves from `data/site.ts`.
+- Public résumé actions use the active label `Download résumé`.
 
 ## LeetCode Behavior
 
@@ -138,7 +138,7 @@ All ten approved screenshots are integrated through `data/project-content.ts`. E
 - Completed placeholder-language cleanup remains in place.
 - Project media no longer shows a public unfinished-state warning.
 - Coding statistics remain omitted when absent.
-- Missing résumé remains represented only by the disabled `Résumé coming soon` action.
+- Résumé actions now link to the final approved PDF.
 - Obsolete `.gitkeep` files were removed from project image directories because real screenshots now exist.
 
 ## Structured Data

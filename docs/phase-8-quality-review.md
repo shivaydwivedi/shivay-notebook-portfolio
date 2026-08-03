@@ -143,7 +143,7 @@ Retained for later owner replacement or follow-up cleanup:
 
 - `components/leetcode-heatmap.tsx` appears unused by the current page.
 - `data/portfolio.ts` appears unused by the current page.
-- `public/resume.pdf` is a placeholder-sized file and is not exposed while resume data remains unverified.
+- The final approved résumé is exposed through `public/Shivay_Dwivedi_Backend_Resume.pdf`.
 - `public/certificates/database-fundamentals.pdf`, `public/certificates/django-backend.pdf`, and `public/certificates/python-programming.pdf` appear to be placeholder certificate PDFs.
 
 No files were removed in this phase.
