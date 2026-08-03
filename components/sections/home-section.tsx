@@ -20,7 +20,7 @@ export function HomeSection() {
         <div className="relative grid min-h-[76vh] content-between p-5 md:p-10">
           <div className="flex items-center justify-between gap-4 font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
             <span>Vol. 01 / Backend Systems</span>
-            <span className="hidden sm:inline">Ctrl+K opens search</span>
+            <span className="hidden rounded-md border border-border bg-paper/85 px-2 py-1 text-foreground shadow-sm dark:bg-background/80 sm:inline">Ctrl+K opens search</span>
           </div>
           <div className="max-w-3xl py-12">
             <h1 className="handwritten text-6xl font-bold leading-[0.95] tracking-normal md:text-8xl">

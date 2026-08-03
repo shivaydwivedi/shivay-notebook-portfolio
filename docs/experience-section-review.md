@@ -43,7 +43,7 @@ Sitapur Shiksha Sansthan Group of Institutions
 
 Duration:
 
-3-month internship · 2026
+4-month internship · 2026
 
 Context:
 
@@ -107,7 +107,7 @@ The existing right-side notebook tabs, active-section tracking, and command pale
 
 ## Facts Intentionally Omitted
 
-- Exact April 2026-July 2026 date range, because the approved public label is `3-month internship · 2026`.
+- Exact April 2026-July 2026 date range, because the approved public label is `4-month internship · 2026`.
 - Detailed security vulnerability names or exploit descriptions.
 - User counts, business metrics, revenue impact, performance percentages, or production ownership claims.
 - A public organization link, because no verified organization URL was supplied.
@@ -118,7 +118,7 @@ The existing right-side notebook tabs, active-section tracking, and command pale
 
 The owner supplied April 2026-July 2026, but this can appear to span four calendar months. Until exact dates are confirmed, the public UI displays only:
 
-3-month internship · 2026
+4-month internship · 2026
 
 ## Verification Results
 

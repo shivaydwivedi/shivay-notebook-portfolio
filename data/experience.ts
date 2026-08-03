@@ -4,7 +4,7 @@ export const portfolioExperience = [
   {
     role: "Software Development Intern",
     organization: "Sitapur Shiksha Sansthan Group of Institutions",
-    durationLabel: "3-month internship · 2026",
+    durationLabel: "4-month internship · 2026",
     context: "Full-stack maintenance and modernization of a legacy ASP.NET MVC application",
     summary:
       "Maintained and enhanced a production ASP.NET MVC admission-management portal while working across application, database, documentation, and deployment concerns.",
