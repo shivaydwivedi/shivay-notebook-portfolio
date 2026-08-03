@@ -47,21 +47,21 @@ function EmailForm({ email }: { email: string }) {
         <h3 className="mt-4 text-xl font-semibold">Send a note</h3>
         <p className="mt-2 text-sm leading-6 text-muted-foreground">Submitting opens your email client with the message prefilled.</p>
       </div>
-      <label className="grid gap-2 text-sm font-medium">
+      <label className="grid gap-2 text-sm font-medium" htmlFor="contact-name">
         Name
-        <input className="h-11 rounded-md border border-border bg-background px-3 outline-none focus:ring-2 focus:ring-ring" name="name" required />
+        <input id="contact-name" className="h-11 rounded-md border border-border bg-background px-3 outline-none focus:ring-2 focus:ring-ring" name="name" autoComplete="name" required />
       </label>
-      <label className="grid gap-2 text-sm font-medium">
+      <label className="grid gap-2 text-sm font-medium" htmlFor="contact-sender">
         Your email
-        <input className="h-11 rounded-md border border-border bg-background px-3 outline-none focus:ring-2 focus:ring-ring" name="sender" type="email" required />
+        <input id="contact-sender" className="h-11 rounded-md border border-border bg-background px-3 outline-none focus:ring-2 focus:ring-ring" name="sender" type="email" autoComplete="email" required />
       </label>
-      <label className="grid gap-2 text-sm font-medium">
+      <label className="grid gap-2 text-sm font-medium" htmlFor="contact-subject">
         Subject
-        <input className="h-11 rounded-md border border-border bg-background px-3 outline-none focus:ring-2 focus:ring-ring" name="subject" required />
+        <input id="contact-subject" className="h-11 rounded-md border border-border bg-background px-3 outline-none focus:ring-2 focus:ring-ring" name="subject" autoComplete="off" required />
       </label>
-      <label className="grid gap-2 text-sm font-medium">
+      <label className="grid gap-2 text-sm font-medium" htmlFor="contact-message">
         Message
-        <textarea className="min-h-32 rounded-md border border-border bg-background p-3 outline-none focus:ring-2 focus:ring-ring" name="message" required />
+        <textarea id="contact-message" className="min-h-32 rounded-md border border-border bg-background p-3 outline-none focus:ring-2 focus:ring-ring" name="message" autoComplete="off" required />
       </label>
       <Button type="submit" className="w-fit">
         <Mail className="size-4" aria-hidden="true" /> Open email client
