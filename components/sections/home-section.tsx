@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowDown, BookMarked, Code2, Download, Github, Linkedin, Mail, Sparkles } from "lucide-react";
+import { ArrowDown, BookMarked, Code2, Download, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteProfile, verifiedEmail, verifiedGithubLink, verifiedLeetcodeLink, verifiedLinkedinLink, verifiedResume } from "@/data/site";
 
@@ -23,9 +23,6 @@ export function HomeSection() {
             <span className="hidden sm:inline">Ctrl+K opens search</span>
           </div>
           <div className="max-w-3xl py-12">
-            <p className="mb-5 inline-flex items-center gap-2 rounded-md border border-border bg-paper/80 px-3 py-1.5 text-sm text-muted-foreground">
-              <Sparkles className="size-4 text-blue" aria-hidden="true" /> Recruiter-ready engineering notebook
-            </p>
             <h1 className="handwritten text-6xl font-bold leading-[0.95] tracking-normal md:text-8xl">
               Hi,
               <br />

@@ -59,10 +59,7 @@ export function ArchitectureNotesSection() {
   return (
     <SectionPage id="architecture-notes" label="Architecture Notes">
       <h2 id="architecture-notes-title" className="mt-5 text-4xl font-bold tracking-tight">Architecture notes</h2>
-      <p className="mt-4 max-w-3xl leading-8 text-muted-foreground">
-        Compact system flows from verified project records. Arrows are decorative; each step is labeled so the flow remains readable without color or animation.
-      </p>
-      <div className="mt-8 grid gap-4">
+      <div className="mt-6 grid gap-4">
         {projectPortfolioContent.map((project) => {
           const architecture = architectureFlows[project.slug];
           return (

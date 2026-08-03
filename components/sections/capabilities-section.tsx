@@ -40,10 +40,7 @@ export function CapabilitiesSection() {
   return (
     <SectionPage id="capabilities" label="Engineering Capabilities">
       <h2 id="capabilities-title" className="mt-5 text-4xl font-bold tracking-tight">Engineering capabilities</h2>
-      <p className="mt-4 max-w-3xl leading-8 text-muted-foreground">
-        Skills are grouped by verified project evidence. No proficiency bars, ratings, or unsupported years of experience are shown.
-      </p>
-      <div className="mt-8 grid gap-5 lg:grid-cols-2">
+      <div className="mt-6 grid gap-5 lg:grid-cols-2">
         {futureCapabilityGroups.map((group, index) => {
           const Icon = icons[index] ?? KeyRound;
           const evidence = capabilityEvidence[group.title];
