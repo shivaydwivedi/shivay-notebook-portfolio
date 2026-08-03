@@ -80,6 +80,16 @@ export type PortfolioSection = {
   icon?: LucideIcon;
 };
 
+export type PortfolioExperience = {
+  role: string;
+  organization: string;
+  durationLabel: string;
+  context: string;
+  summary: string;
+  highlights: string[];
+  technologies: string[];
+};
+
 export type ProjectLinkSet = {
   repo?: string;
   repository?: string;

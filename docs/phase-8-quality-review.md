@@ -4,17 +4,18 @@
 
 Phase 8 reviewed the current notebook portfolio for responsive behavior, keyboard access, command-palette behavior, semantic structure, screen-reader support, color/contrast, reduced motion, touch ergonomics, browser resilience, empty states, and dead-code candidates.
 
-This pass did not change the seven-section information architecture, project copy, verified URLs, SEO metadata, deployment configuration, dependencies, or repository history.
+This pass did not change the information architecture that was in place at the time, project copy, verified URLs, SEO metadata, deployment configuration, dependencies, or repository history. The current public portfolio now uses an eight-section structure with Experience placed after Selected Work.
 
-The seven rendered sections remain:
+The current rendered sections are:
 
 1. Home
 2. Selected Work
-3. Engineering Capabilities
-4. Architecture Notes
-5. About
-6. Algorithm Notebook
-7. Contact
+3. Experience
+4. Engineering Capabilities
+5. Architecture Notes
+6. About
+7. Algorithm Notebook
+8. Contact
 
 ## Viewport Checks
 
@@ -78,8 +79,8 @@ Browser verification:
 ## Semantic Fixes
 
 - Preserved one page-level `h1`.
-- Preserved logical section `h2` headings for the six sections after Home.
-- Preserved `main > section` structure for the seven-section page.
+- Preserved logical section `h2` headings for the sections after Home.
+- Preserved `main > section` structure for the current eight-section page.
 - Replaced the selected project button's incorrect `aria-current` usage with text-based selected-state labeling.
 - Added screen-reader-only selected-state text for the active project.
 - Kept decorative icons hidden from assistive technology where appropriate.

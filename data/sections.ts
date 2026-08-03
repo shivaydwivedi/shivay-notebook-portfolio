@@ -1,5 +1,6 @@
 import {
   BookOpen,
+  BriefcaseBusiness,
   Code2,
   Layers3,
   Mail,
@@ -12,6 +13,7 @@ import type { PortfolioSection } from "@/types/portfolio";
 export const futureSections = [
   { id: "home", label: "Home", icon: NotebookPen },
   { id: "selected-work", label: "Selected Work", icon: Layers3 },
+  { id: "experience", label: "Experience", icon: BriefcaseBusiness },
   { id: "capabilities", label: "Engineering Capabilities", icon: ServerCog },
   { id: "architecture-notes", label: "Architecture Notes", icon: Workflow },
   { id: "about", label: "About", icon: BookOpen },

@@ -2,7 +2,7 @@
 
 ## Scope
 
-Phase 9 prepared the approved notebook portfolio for SEO, metadata, performance, production-readiness, and launch planning. This pass preserved the seven-section structure, verified project copy, all five Live Demo actions, all five GitHub Repository actions, and static-export compatibility.
+Phase 9 prepared the approved notebook portfolio for SEO, metadata, performance, production-readiness, and launch planning. That pass preserved the public section structure in place at the time, verified project copy, all five Live Demo actions, all five GitHub Repository actions, and static-export compatibility. The current public portfolio now uses an eight-section structure with Experience placed after Selected Work.
 
 No deployment, commit, push, dependency install, dependency upgrade, or project repository change was performed.
 

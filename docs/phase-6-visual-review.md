@@ -12,7 +12,7 @@
 
 ## Selected Work hierarchy decisions
 
-- Kept the approved seven-section page model unchanged.
+- Phase 6 kept the approved page model unchanged at that time. The current public portfolio now uses an eight-section model with Experience placed after Selected Work.
 - Kept Selected Work as one section, but made it the strongest technical area through clearer project identity, top actions, evidence strips, preview panels, and notebook subsections.
 - Reordered project detail content to: identity, one-line positioning, summary, actions, evidence strip, problem, engineering approach, key systems, architecture summary, testing and deployment evidence.
 - Removed dense technology-chip walls from the detail view and replaced them with three-to-five evidence items per project.
